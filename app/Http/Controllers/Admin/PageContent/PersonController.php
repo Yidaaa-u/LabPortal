@@ -23,12 +23,6 @@ class PersonController extends Controller
 {
 
     public function teacherShow(){
-//        $teacher = Teacher::select(['name','t_url','profession'])->paginate(6);
-//        return $teacher?
-//        json_success('成功!',$teacher,200):
-//        json_fail('失败!',null,100);
-
-
         $teacher = Teacher::teacherShow();
         return $teacher?
             json_success('成功!',$teacher,200):
@@ -38,26 +32,6 @@ class PersonController extends Controller
 
 
     public function teacherAdd(teacherAdd $request){
-//
-//            if ($request->hasFile('avatar') && $request->file('avatar')->isValid()) {
-//                $path = md5(time() . rand(1000, 9999)) .
-//                    '.' . $request->file('avatar')->getClientOriginalExtension();
-//
-//                $request->file('avatar')->move('./public', $path);
-//
-//                $data = $request->all();
-//
-//                $data['avatar'] = './public' . $path;
-//
-//                Teacher::create([
-//                   'name'=>$data['name'],
-//                    'priority'=>$data['priority'],
-//                    't_url'=>$data['avatar'],
-//                ]);
-//                return json_success('成功!',null,200) ;
-//            }
-//        return json_fail('失败!',null,100);
-
        $teacher = Teacher::teacherAdd($request);
         return $teacher?
             json_success('成功!',$teacher,200):
@@ -68,7 +42,6 @@ class PersonController extends Controller
 
 
     public function teacherBack(teacherBack $request){
-
 
         $teacher = $request->input('id');
         $teacher = Teacher::teacherBack($teacher);
