@@ -54,3 +54,21 @@ Route::prefix('/admin/pagecontent')->namespace('Admin\PageContent')->group(funct
 
 
 });
+
+/**
+ * @author  ZhangJinJIn <github.com/YetiSui>
+ */
+Route::prefix('labhome')->namespace("LabHome")->group(function (){
+    Route::post('login', 'TestController@login'); //登陆
+    Route::post('adduser','AdminController@addUser');  //用户报名信息
+    Route::get('uploadpic','HomeController@uploadPic');  //获取轮播图
+    Route::get('gettitle','HomeController@getTitle');  //获取新闻标题
+    Route::get('getmembers','HomeController@getMembers');  //获取历届成员
+    Route::get('getlink','HomeController@getLink');  //友链展示
+    Route::get('getnew','HomeController@getNew');  //实验室新闻/实验室公告/聚焦实验室
+    Route::get('labintroduce','HomeController@labIntroduce');  //实验室介绍
+    Route::get('guidteacher','HomeController@guidTeacher');  //指导老师
+    Route::get('labenvironment','HomeController@labEnvironment');  //实验室环境
+    Route::get('labarchited','HomeController@labarchited');  //组织架构
+    Route::get('labaspect','HomeController@labAspect');  //实验室方向
+});
