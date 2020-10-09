@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin\PageContent;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TestRequest extends FormRequest
+class studentDelete extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class TestRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'member_id'=>'request|integer',
         ];
     }
     protected function failedValidation(Validator $validator)

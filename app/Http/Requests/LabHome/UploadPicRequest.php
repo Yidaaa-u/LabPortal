@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin\PageContent;
+namespace App\Http\Requests\LabHome;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
-class TestRequest extends FormRequest
+class UploadPicRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +26,11 @@ class TestRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nb_id' => 'required'
         ];
     }
     protected function failedValidation(Validator $validator)
     {
-        throw (new HttpResponseException(json_fail('参数错误!',$validator->errors()->all(),100)));
+        throw (new HttpResponseException(json_fail('参数错误', $validator->errors()->all(), 422)));
     }
 }
