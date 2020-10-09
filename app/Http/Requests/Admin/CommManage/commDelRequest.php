@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Admin\CommManage;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TestRequest extends FormRequest
+class commDelRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class TestRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class TestRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'comment_id' => 'required|string',
         ];
     }
 }
